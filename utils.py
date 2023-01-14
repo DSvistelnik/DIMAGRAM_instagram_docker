@@ -1,22 +1,22 @@
-# Functions for app
 import json
 
+'''Функции'''
+################################################
 
 def get_posts_all():
-    """Возвращает посты"""
+    """Функция возвращает посты"""
     with open('data/posts.json', 'r', encoding='utf-8') as file:
         return json.load(file)
 
 
 def get_comments_all():
-    """Возвращает комментарии"""
+    """Функция возвращает комментарии"""
     with open('data/comments.json', 'r', encoding='utf-8') as file:
         return json.load(file)
 
 
 def get_posts_by_user(user_name):
-    """Возвращает посты определенного пользователя. Функция должна вызывать ошибку `ValueError`
-    если такого пользователя нет и пустой список, если у пользователя нет постов"""
+    """Функция возвращает посты определенного пользователя."""
     posts = get_posts_all()
     posts_user = []
     try:
@@ -30,8 +30,7 @@ def get_posts_by_user(user_name):
 
 
 def get_comments_by_post_id(post_id):
-    """Возвращает комментарии определенного поста.
-    Функция должна вызывать ошибку `ValueError` если такого поста нет и пустой список, если у поста нет комментов"""
+    """Функция возвращает комментарии определенного поста."""
     comments_id = []
     comments = get_comments_all()
     for comment in comments:
@@ -41,7 +40,7 @@ def get_comments_by_post_id(post_id):
 
 
 def get_comments_count(pk):
-    """Возвращает количество комментариев к определенному посту"""
+    """Функция возвращает количество комментариев к определенному посту"""
     comments = get_comments_all()
     count = 0
     for comment in comments:
@@ -51,7 +50,7 @@ def get_comments_count(pk):
 
 
 def search_for_posts(query):
-    """Возвращает список постов по ключевому слову"""
+    """Функция возвращает список постов по ключевому слову"""
     posts = get_posts_all()
     posts_query = []
     for post in posts:
@@ -61,7 +60,7 @@ def search_for_posts(query):
 
 
 def get_post_by_pk(pk):
-    """Возвращает один пост по его идентификатору"""
+    """Функция возвращает один пост по его идентификатору"""
     posts = get_posts_all()
     for post in posts:
         if post['pk'] == pk:
@@ -69,7 +68,4 @@ def get_post_by_pk(pk):
         else:
             return "нет такого поста"
 
-
-# Напишите к каждой функции юнит тесты, расположите тесты в отдельной папке `/tests`.
-# Организуйте тесты в виде классов или функций, на ваше усмотрение.
 
