@@ -6,7 +6,7 @@ services:
     image: dsvistelnik/skypro_dsvistelnik_app
 
     ports:
-      - 80:80
+      - 80:81
     depends_on:
       pg:
         condition: service_healthy
