@@ -1,12 +1,12 @@
 version: "3.9"
 services:
   api:
-    build:
-      context: .
+    image: dsvistelnik/skypro_dsvistelnik_app:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     ports:
-    - 8000:81
-  postgres:
-    image: postgres:latest
+      - 80:5000
+    volumes:
+        - ./$DATABASE_NAME:/skypro_dsvistelnik_app/$DATABASE_NAME
+
 
 
 
