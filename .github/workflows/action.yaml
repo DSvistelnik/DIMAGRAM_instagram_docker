@@ -32,7 +32,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.NAME_SKYPRO }}
           password: ${{ secrets.SKYPRO_PASSWORD }}
-          source: "deploy/docker-compose.yaml"
+          source: "deploy-app/docker-compose.yaml"
           target: deploy_app
 
       - name: run docker-compose
